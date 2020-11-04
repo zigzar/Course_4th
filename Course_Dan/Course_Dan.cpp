@@ -11,7 +11,6 @@ int main()
 {
 	setlocale(LC_ALL, "russian");
 	List data;
-	Car current;
 	char menu;
 	do {
 		system("CLS");
@@ -27,7 +26,7 @@ int main()
 		{
 		//case '1': data.load(); system("PAUSE"); break;
 		//case '2': data.save(); system("PAUSE"); break;
-		case '3': current.input(); data.pushBack(current); system("PAUSE"); break;
+		case '3': data.pushBack(); system("PAUSE"); break;
 		case '4': data.popBack(); system("PAUSE"); break;
 		case '5': show(data); system("PAUSE"); break;
 		//case '6': data.task(); system("PAUSE"); break;

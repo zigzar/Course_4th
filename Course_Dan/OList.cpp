@@ -1,9 +1,10 @@
 ﻿#include "OList.h"
 
 
-List::Node::Node(Car t, Node* n)
+List::Node::Node(Node* n)
 {
-	data = t;
+	data = Car();
+	data.input();
 	next = n;
 }
 
@@ -21,16 +22,16 @@ List::~List()
 }
 
 
-void List::pushBack(Car value)
+void List::pushBack()
 {
 	if (head == nullptr)
-		head = new Node(value);
+		head = new Node();
 	else
 	{
 		for (Node* current = head; ; current = current->next)
 			if (current->next == nullptr)
 			{
-				current->next = new Node(value);
+				current->next = new Node();
 				break;
 			}
 	}
@@ -38,9 +39,9 @@ void List::pushBack(Car value)
 }
 
 
-void List::pushFront(Car value)
+void List::pushFront()
 {
-	head = new Node(value, head);
+	head = new Node(head);
 	size++;
 }
 
@@ -88,7 +89,7 @@ void List::clear()
 }
 
 
-void List::insert(Car value, int index)
+void List::insert(int index)
 {
 	if (index > size || index < 0)
 	{
@@ -96,13 +97,13 @@ void List::insert(Car value, int index)
 		message.append(to_string(index));
 		throw out_of_range(message);
 	}
-	if (index == 0) pushFront(value);
+	if (index == 0) pushFront();
 	else
 	{
 		Node* previous = head;
 		for (int i = 0; i < index - 1; i++)
 			previous = previous->next;
-		previous->next = new Node(value, previous->next);
+		previous->next = new Node(previous->next);
 		size++;
 	}
 }

@@ -13,7 +13,7 @@ class List
 		Car data;
 		Node* next;
 
-		Node(Car t = Car(), Node* n = nullptr);
+		Node(Node* n = nullptr);
 	};
 	Node* head;
 	int size;
@@ -21,14 +21,14 @@ class List
 public:
 	List();
 	~List();
-	void pushBack(Car value);
-	void pushFront(Car value);
+	void pushBack();
+	void pushFront();
 	int getSize() const;
 	Car& operator[] (int);
 	void popFront();
 	void popBack();
 	void clear();
-	void insert(Car value, int index);
+	void insert(int index);
 	void removeAt(int index);
 };
 
