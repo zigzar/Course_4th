@@ -1,4 +1,5 @@
-﻿#include "OList.h"
+﻿#pragma once
+#include "OList.h"
 
 
 List::Node::Node(Node* n)
@@ -130,10 +131,11 @@ void List::removeAt(int index)
 	}
 }
 
-
-void show(List& list)
+void List::show()
 {
-	cout << "size = " << list.getSize() << endl;
-	for (int i = 0; i < list.getSize(); i++) cout << list[i].brand << "\t" << list[i].year << "\t" << list[i].country << "\t" << "  ";
-	cout << endl;
+	while (head != nullptr)
+	{
+		head->data.show();
+		head = head->next;
+	}
 }

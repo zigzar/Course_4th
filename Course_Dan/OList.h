@@ -30,6 +30,5 @@ public:
 	void clear();
 	void insert(int index);
 	void removeAt(int index);
+	void show();
 };
-
-void show(List&);

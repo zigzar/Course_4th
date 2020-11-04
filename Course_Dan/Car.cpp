@@ -1,3 +1,4 @@
+#pragma once
 #include "Car.h"
 #include <iostream>
 #include <string>
@@ -15,20 +16,27 @@ void Car::input()
 	cin >> this->country;
 	cout << "Год:\t";
 	cin >> this->year;
+	cout << "Объем двигателя:\t";
+	cin >> this->volume;
+	cout << "Расход бензина:\t";
+	cin >> this->gasMileage;
 	cout << "\n";
 }
 
 void Car::show()
 {
-		cout << "Цена:\t";
 	cout << this->price;
-	cout << "Кол-во:\t";
+	cout << "\t";
 	cout << this->amount;
-	cout << "Марка:\t";
+	cout << "\t";
 	cout << this->brand;
-	cout << "Страна:\t";
+	cout << "\t";
 	cout << this->country;
-	cout << "Год:\t";
+	cout << "\t";
 	cout << this->year;
+	cout << "\t";
+	cout << this->volume;
+	cout << "\t";
+	cout << this->gasMileage;
 	cout << "\n";
 }
