@@ -249,3 +249,23 @@ void List::filter()
 	system("CLS");
 	this->show(volume);
 }
+
+void List::showMin()
+{
+	float min = numeric_limits<float>::max();
+	Node* current = this->head;
+	while (current != nullptr)
+	{
+		if (current->data.gasMileage < min) min = current->data.gasMileage;
+		current = current->next;
+	}
+	if (min == numeric_limits<float>::max()) return;
+	current = this->head;
+	system("CLS");
+	cout << "Автомобиль(и) с наименьшим расходом топлива:\n";
+	while (current != nullptr)
+	{
+		if (current->data.gasMileage == min) current->data.show();
+		current = current->next;
+	}
+}

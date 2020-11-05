@@ -21,7 +21,8 @@ int main()
 		cout << "5. View" << endl;
 		cout << "6. Edit" << endl;
 		cout << "7. Filter" << endl;
-		cout << "8. Exit" << endl;
+		cout << "8. Minimal gas miliage" << endl;
+		cout << "9. Exit" << endl;
 		answer = getchar();
 		switch (answer)
 		{
@@ -32,8 +33,9 @@ int main()
 		case '5': data.show(); system("PAUSE"); break;
 		case '6': data.edit(); system("PAUSE"); break;
 		case '7': data.filter(); system("PAUSE"); break;
+		case '8': data.showMin(); system("PAUSE"); break;
 		}
-	} while (answer != '8');
+	} while (answer != '9');
 
 	system("pause");
 }

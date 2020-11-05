@@ -39,4 +39,5 @@ public:
 	void load();
 	void edit();
 	void filter();
+	void showMin();
 };
