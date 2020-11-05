@@ -151,13 +151,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Car.cpp" />
     <ClCompile Include="Course_Dan.cpp" />
-    <ClCompile Include="OList.cpp" />
+    <ClCompile Include="src\Car.cpp" />
+    <ClCompile Include="src\OList.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Car.h" />
-    <ClInclude Include="OList.h" />
+    <ClInclude Include="include\Car.h" />
+    <ClInclude Include="include\OList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

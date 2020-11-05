@@ -1,5 +1,5 @@
 ﻿#pragma once
-#include "OList.h"
+#include "../include/OList.h"
 #include <iomanip> // форматирование таблицы авто
 
 List::Node::Node(Car& value, Node* n)
