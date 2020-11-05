@@ -219,7 +219,6 @@ void List::load()
 
 void List::edit()
 {
-	system("CLS");
 	show();
 	int number;
 	cout << "Введите номер строки для редактирования: ";
@@ -242,6 +241,7 @@ void List::edit()
 
 void List::filter()
 {
+	show();
 	cout << "Введите объем двигателя: ";
 	float volume;
 	cin >> volume;

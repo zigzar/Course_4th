@@ -1,6 +1,6 @@
 ﻿#include "Car.h"
 #include "OList.h"
-#include <iostream>		// без комментариев =)
+#include <iostream>
 #include <fstream>		// для записи/чтения из файла
 #include <stdlib.h>		// для очистки консоли
 #include <Windows.h>	// для локализации
@@ -22,6 +22,21 @@ int main()
 	char answer;
 	do {
 		system("CLS");
+		cout << "Загрузить базу из файла?" << endl;
+		cout << "1. Да" << endl;
+		cout << "2. Нет" << endl;
+		cout << "3. Выход" << endl;
+		answer = getchar();
+		switch (answer)
+		{
+		case '1': data.load(); system("PAUSE"); break;
+		case '2': break;
+		case '3': exit(0); break;
+		}
+	} while (answer == '1' || answer == '2');
+	answer = '0';
+	do {
+		system("CLS");
 		cout << "1. Загрузить" << endl;
 		cout << "2. Сохранить" << endl;
 		cout << "3. Добавить" << endl;
@@ -34,14 +49,14 @@ int main()
 		answer = getchar();
 		switch (answer)
 		{
-		case '1': data.load(); system("PAUSE"); break;
-		case '2': data.save(); system("PAUSE"); break;
-		case '3': data.add(); system("PAUSE"); break;
-		case '4': data.remove(); system("PAUSE"); break;
-		case '5': data.show(); system("PAUSE"); break;
-		case '6': data.edit(); system("PAUSE"); break;
-		case '7': data.filter(); system("PAUSE"); break;
-		case '8': data.showMin(); system("PAUSE"); break;
+		case '1': system("CLS"); data.load();	 system("PAUSE"); break;
+		case '2': system("CLS"); data.save();	 system("PAUSE"); break;
+		case '3': system("CLS"); data.add();	 system("PAUSE"); break;
+		case '4': system("CLS"); data.remove();  system("PAUSE"); break;
+		case '5': system("CLS"); data.show();	 system("PAUSE"); break;
+		case '6': system("CLS"); data.edit();	 system("PAUSE"); break;
+		case '7': system("CLS"); data.filter();  system("PAUSE"); break;
+		case '8': system("CLS"); data.showMin(); system("PAUSE"); break;
 		}
 	} while (answer != '9');
 
