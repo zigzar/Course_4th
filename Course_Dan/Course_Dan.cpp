@@ -1,6 +1,5 @@
 ﻿#include "Car.h"
-#include "OList.cpp"
-#include "Menu.h"
+#include "OList.h"
 #include <iostream>
 #include <string>
 #include <fstream>
@@ -11,7 +10,7 @@ using namespace std;
 int main()
 {
 	setlocale(LC_ALL, "russian");
-	Menu menu;
+	List data;
 	char answer;
 	do {
 		system("CLS");
@@ -26,10 +25,10 @@ int main()
 		switch (answer)
 		{
 		//case '1': data.load(); system("PAUSE"); break;
-		//case '2': data.save(); system("PAUSE"); break;
-		case '3': menu.addToEnd(); system("PAUSE"); break;
-		case '4': menu.removeFromEnd(); system("PAUSE"); break;
-		case '5': menu.show(); system("PAUSE"); break;
+		case '2': data.save(); system("PAUSE"); break;
+		case '3': data.pushBack(); system("PAUSE"); break;
+		case '4': data.popBack(); system("PAUSE"); break;
+		case '5': data.show(); system("PAUSE"); break;
 		//case '6': data.task(); system("PAUSE"); break;
 		}
 	} while (answer != '8');

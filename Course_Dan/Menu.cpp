@@ -1,5 +1,6 @@
 #pragma once
 #include "Menu.h"
+#include <fstream>
 
 void Menu::load()
 {
@@ -7,6 +8,7 @@ void Menu::load()
 
 void Menu::save()
 {
+	list.save();
 }
 
 void Menu::addToEnd()

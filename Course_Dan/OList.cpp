@@ -1,6 +1,11 @@
 ﻿#pragma once
 #include "OList.h"
 
+List::Node::Node(Car& value, Node* n)
+{
+	data = value;
+	next = n;
+}
 
 List::Node::Node(Node* n)
 {
@@ -39,6 +44,21 @@ void List::pushBack()
 	size++;
 }
 
+void List::pushBack(Car& value)
+{
+	if (head == nullptr)
+		head = new Node(value);
+	else
+	{
+		for (Node* current = head; ; current = current->next)
+			if (current->next == nullptr)
+			{
+				current->next = new Node(value);
+				break;
+			}
+	}
+	size++;
+}
 
 void List::pushFront()
 {
@@ -72,7 +92,7 @@ void List::popFront()
 {
 	if (size <= 0) return;
 	Node* temp = head;
-	head = head->next;
+	if (head != nullptr) head = head->next;
 	delete temp;
 	size--;
 }
@@ -131,11 +151,57 @@ void List::removeAt(int index)
 	}
 }
 
-void List::show()
+void List::show() const
 {
-	while (head != nullptr)
+	cout << "Цена\tКоличество\tМарка\tСтрана\tГод\tОбъем двигателя\tРасход бензина\n";
+	Node* current = head;
+	while (current != nullptr)
 	{
-		head->data.show();
-		head = head->next;
+		current->data.show();
+		current = current->next;
+	}
+}
+
+void List::save()
+{
+	ofstream fout;
+	fout.open("data.txt");
+	fout.close();
+	try
+	{
+		fout.open("data.txt", ofstream::app);
+		Node* tmp;
+		tmp = head;
+		while (tmp != nullptr)
+		{
+			fout.write((char*)&tmp->data, sizeof(Car));
+			tmp = tmp->next;
+		}
+	}
+	catch (const std::exception&)
+	{
+		cerr << "Ошибка записи файла.\n";
+		system("pause");
+	}
+	fout.close();
+}
+
+void List::load()
+{
+	ifstream fin;
+	Car current;
+	try
+	{
+		fin.open("data.txt");
+		clear();
+		while (fin.read((char*)&current, sizeof(Car)))
+		{
+			pushBack(current);
+		}
+		fin.close();
+	}
+	catch (const std::exception&)
+	{
+		cerr << "Ошибка записи файла.\n";
 	}
 }

@@ -153,11 +153,11 @@
   <ItemGroup>
     <ClCompile Include="Car.cpp" />
     <ClCompile Include="Course_Dan.cpp" />
-    <ClCompile Include="Menu.cpp" />
+    <ClCompile Include="OList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Car.h" />
-    <ClInclude Include="Menu.h" />
+    <ClInclude Include="OList.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
