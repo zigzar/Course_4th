@@ -208,6 +208,8 @@ void List::save()
 		system("pause");
 	}
 	fout.close();
+	system("CLS");
+	cout << "База данных успешно сохранена!\n";
 }
 
 void List::load()
@@ -228,10 +230,14 @@ void List::load()
 	{
 		cerr << "Ошибка записи файла.\n";
 	}
+	system("CLS");
+	cout << "База данных успешно загружена!\n";
 }
 
 void List::edit()
 {
+	system("CLS");
+	show();
 	int number;
 	cout << "Введите номер строки для редактирования: ";
 	cin >> number;
