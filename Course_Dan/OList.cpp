@@ -165,6 +165,17 @@ void List::show() const
 	}
 }
 
+void List::show(float volume) const
+{
+	cout << "Цена\tКоличество\tМарка\tСтрана\tГод\tОбъем двигателя\tРасход бензина\n";
+	Node* current = head;
+	while (current != nullptr)
+	{
+		if (current->data.volume == volume) current->data.show();
+		current = current->next;
+	}
+}
+
 void List::save()
 {
 	ofstream fout;
@@ -228,4 +239,13 @@ void List::edit()
 		current = current->next;
 		counter++;
 	}
+}
+
+void List::filter()
+{
+	cout << "Введите объем двигателя: ";
+	float volume;
+	cin >> volume;
+	system("CLS");
+	this->show(volume);
 }

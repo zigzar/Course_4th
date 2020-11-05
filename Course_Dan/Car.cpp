@@ -7,20 +7,30 @@ using namespace std;
 void Car::input()
 {
 	cout << "Цена:\t";
-	cin >> this->price;
-	cout << "Кол-во:\t";
-	cin >> this->amount;
-	cout << "Марка:\t";
-	cin >> this->brand;
-	cout << "Страна:\t";
-	cin >> this->country;
-	cout << "Год:\t";
-	cin >> this->year;
-	cout << "Объем двигателя:\t";
-	cin >> this->volume;
-	cout << "Расход бензина:\t";
-	cin >> this->gasMileage;
-	cout << "\n";
+	float value;
+	cin >> value;
+	if (this->price == value)
+	{
+		cout << "\nЦена осталась без изменений.\n";
+		return;
+	}
+	else
+	{
+		this->price = value;
+		cout << "Кол-во:\t";
+		cin >> this->amount;
+		cout << "Марка:\t";
+		cin >> this->brand;
+		cout << "Страна:\t";
+		cin >> this->country;
+		cout << "Год:\t";
+		cin >> this->year;
+		cout << "Объем двигателя:\t";
+		cin >> this->volume;
+		cout << "Расход бензина:\t";
+		cin >> this->gasMileage;
+		cout << "\n";
+	}
 }
 
 void Car::show()

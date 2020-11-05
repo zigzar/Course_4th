@@ -20,6 +20,7 @@ int main()
 		cout << "4. Remove from end" << endl;
 		cout << "5. View" << endl;
 		cout << "6. Edit" << endl;
+		cout << "7. Filter" << endl;
 		cout << "8. Exit" << endl;
 		answer = getchar();
 		switch (answer)
@@ -30,6 +31,7 @@ int main()
 		case '4': data.popBack(); system("PAUSE"); break;
 		case '5': data.show(); system("PAUSE"); break;
 		case '6': data.edit(); system("PAUSE"); break;
+		case '7': data.filter(); system("PAUSE"); break;
 		}
 	} while (answer != '8');
 

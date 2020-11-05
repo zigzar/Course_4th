@@ -34,7 +34,9 @@ public:
 	void insert(int index);
 	void removeAt(int index);
 	void show() const;
+	void show(float volume) const;
 	void save();
 	void load();
 	void edit();
+	void filter();
 };
