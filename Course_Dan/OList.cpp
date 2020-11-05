@@ -294,3 +294,14 @@ void List::add()
 	}
 	insert(counter, tmp->data);
 }
+
+void List::remove()
+{
+	system("CLS");
+	show();
+	cout << "Введите номер строки для удаления (0 - вернуться): ";
+	int number;
+	cin >> number;
+	if (!number) return;
+	removeAt(number - 1);
+}

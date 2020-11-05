@@ -41,4 +41,5 @@ public:
 	void showMin();
 	void showHeaders() const;
 	void add();
+	void remove();
 };
