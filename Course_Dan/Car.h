@@ -1,9 +1,8 @@
 #pragma once
-#include <string>
 struct Car
 {
-	std::string brand = "";
-	std::string country = "";
+	char brand[32];
+	char country[32];
 	int year = 0;
 	float volume = 0;
 	float gasMileage = 0;

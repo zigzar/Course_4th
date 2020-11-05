@@ -185,10 +185,10 @@ void List::save()
 	{
 		fout.open("data.txt", ofstream::app);
 		Node* tmp;
-		tmp = head;
+		tmp = this->head;
 		while (tmp != nullptr)
 		{
-			fout.write((char*)&tmp->data, sizeof(Car));
+			fout.write((char*)&tmp->data, sizeof(Car));  // Записать объект класса автомобиля в текстовый файл
 			tmp = tmp->next;
 		}
 	}
@@ -207,10 +207,10 @@ void List::load()
 	try
 	{
 		fin.open("data.txt");
-		clear();
-		while (fin.read((char*)&current, sizeof(Car)))
+		this->clear();
+		while (fin.read((char*)&current, sizeof(Car)))  // Считывать объекты классов, пока файл не закончится
 		{
-			pushBack(current);
+			this->pushBack(current);
 		}
 		fin.close();
 	}
@@ -252,14 +252,14 @@ void List::filter()
 
 void List::showMin()
 {
-	float min = numeric_limits<float>::max();
+	float min = numeric_limits<float>::max();  // Максимальное значение для типа float
 	Node* current = this->head;
 	while (current != nullptr)
 	{
 		if (current->data.gasMileage < min) min = current->data.gasMileage;
 		current = current->next;
 	}
-	if (min == numeric_limits<float>::max()) return;
+	if (min == numeric_limits<float>::max()) return;  // Если минимум не обновился, выходим из функции
 	current = this->head;
 	system("CLS");
 	cout << "Автомобиль(и) с наименьшим расходом топлива:\n";

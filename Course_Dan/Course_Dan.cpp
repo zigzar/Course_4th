@@ -1,15 +1,18 @@
 ﻿#include "Car.h"
 #include "OList.h"
 #include <iostream>
-#include <string>
 #include <fstream>
 #include <stdlib.h>
+#include <Windows.h>
 
 using namespace std;
 
 int main()
 {
-	setlocale(LC_ALL, "russian");
+	SetConsoleCP(1251);				// Русский ввод в консоль
+	SetConsoleOutputCP(1251);		// Русский вывод консоли
+	cout.setf(ios::fixed);			// Выводить большие числа в нормальной форме
+	cout.precision(2);				// Количество знаков после запятой
 	List data;
 	char answer;
 	do {
@@ -26,7 +29,7 @@ int main()
 		answer = getchar();
 		switch (answer)
 		{
-		//case '1': data.load(); system("PAUSE"); break;
+		case '1': data.load(); system("PAUSE"); break;
 		case '2': data.save(); system("PAUSE"); break;
 		case '3': data.pushBack(); system("PAUSE"); break;
 		case '4': data.popBack(); system("PAUSE"); break;

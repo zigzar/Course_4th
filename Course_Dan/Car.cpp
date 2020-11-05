@@ -1,7 +1,6 @@
 #pragma once
 #include "Car.h"
 #include <iostream>
-#include <string>
 using namespace std;
 
 void Car::input()
