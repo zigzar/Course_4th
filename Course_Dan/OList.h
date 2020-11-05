@@ -27,7 +27,7 @@ public:
 	void pushBack(Car& value);
 	void pushFront();
 	int getSize() const;
-	Car& operator[] (int);
+	Node* operator[] (int);
 	void popFront();
 	void popBack();
 	void clear();
@@ -36,4 +36,5 @@ public:
 	void show() const;
 	void save();
 	void load();
+	void edit();
 };

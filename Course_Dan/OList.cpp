@@ -73,18 +73,21 @@ int List::getSize() const
 }
 
 
-Car& List::operator[](int index)
+List::Node* List::operator[](int index)
 {
-	if (index > size - 1 || index < 0)
+	int counter = 0;
+
+	Node* current = this->head;
+
+	while (current != nullptr)
 	{
-		string message = "Недопустимый индекс ";
-		message.append(to_string(index));
-		throw out_of_range(message);
-	}
-	Node* current = head;
-	for (int i = 0; i < index; i++)
+		if (counter == index)
+		{
+			return current;
+		}
 		current = current->next;
-	return current->data;
+		counter++;
+	}
 }
 
 
@@ -203,5 +206,26 @@ void List::load()
 	catch (const std::exception&)
 	{
 		cerr << "Ошибка записи файла.\n";
+	}
+}
+
+void List::edit()
+{
+	int number;
+	cout << "Введите номер строки для редактирования: ";
+	cin >> number;
+	number--;
+	int counter = 0;
+
+	Node* current = this->head;
+
+	while (current != nullptr)
+	{
+		if (counter == number)
+		{
+			current->data.input();
+		}
+		current = current->next;
+		counter++;
 	}
 }
