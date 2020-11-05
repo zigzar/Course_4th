@@ -1,9 +1,9 @@
 ﻿#include "Car.h"
 #include "OList.h"
-#include <iostream>
-#include <fstream>
-#include <stdlib.h>
-#include <Windows.h>
+#include <iostream>		// без комментариев =)
+#include <fstream>		// для записи/чтения из файла
+#include <stdlib.h>		// для очистки консоли
+#include <Windows.h>	// для локализации
 
 using namespace std;
 

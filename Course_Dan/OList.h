@@ -40,4 +40,5 @@ public:
 	void edit();
 	void filter();
 	void showMin();
+	void showHeaders() const;
 };

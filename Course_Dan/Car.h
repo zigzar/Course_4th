@@ -1,8 +1,8 @@
 #pragma once
 struct Car
 {
-	char brand[32];
-	char country[32];
+	char brand[20];
+	char country[20];
 	int year = 0;
 	float volume = 0;
 	float gasMileage = 0;

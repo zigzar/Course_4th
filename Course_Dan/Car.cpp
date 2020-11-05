@@ -1,6 +1,7 @@
 #pragma once
 #include "Car.h"
 #include <iostream>
+#include <iomanip>	// форматирование таблицы авто
 using namespace std;
 
 void Car::input()
@@ -34,18 +35,12 @@ void Car::input()
 
 void Car::show()
 {
-	cout << this->price;
-	cout << "\t";
-	cout << this->amount;
-	cout << "\t";
-	cout << this->brand;
-	cout << "\t";
-	cout << this->country;
-	cout << "\t";
-	cout << this->year;
-	cout << "\t";
-	cout << this->volume;
-	cout << "\t";
-	cout << this->gasMileage;
-	cout << "\n";
+	cout << setw(14) << left << this->price
+	 << setw(14) << this->amount
+	 << setw(18) << this->brand
+	 << setw(14) << this->country
+	 << setw(6)	 << this->year
+	 << setw(7)	 << this->volume
+	 << setw(18) << this->gasMileage
+	 << "\n";
 }

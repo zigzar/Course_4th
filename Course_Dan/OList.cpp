@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "OList.h"
+#include <iomanip> // форматирование таблицы авто
 
 List::Node::Node(Car& value, Node* n)
 {
@@ -156,22 +157,31 @@ void List::removeAt(int index)
 
 void List::show() const
 {
-	cout << "Цена\tКоличество\tМарка\tСтрана\tГод\tОбъем двигателя\tРасход бензина\n";
+	showHeaders();
 	Node* current = head;
+	int counter = 1;
 	while (current != nullptr)
 	{
+		cout << setw(3) << counter;
 		current->data.show();
 		current = current->next;
+		counter++;
 	}
 }
 
 void List::show(float volume) const
 {
-	cout << "Цена\tКоличество\tМарка\tСтрана\tГод\tОбъем двигателя\tРасход бензина\n";
+	showHeaders();
 	Node* current = head;
+	int counter = 1;
 	while (current != nullptr)
 	{
-		if (current->data.volume == volume) current->data.show();
+		if (current->data.volume == volume)
+		{
+			cout << setw(3) << counter;
+			current->data.show();
+			counter++;
+		}
 		current = current->next;
 	}
 }
@@ -268,4 +278,17 @@ void List::showMin()
 		if (current->data.gasMileage == min) current->data.show();
 		current = current->next;
 	}
+}
+
+void List::showHeaders() const
+{
+	cout << setw(3) << left << "№"
+		<< setw(14) << "Цена"
+		<< setw(14) << "Количество"
+		<< setw(18) << "Марка"
+		<< setw(14) << "Страна"
+		<< setw(6) << "Год"
+		<< setw(7) << "Объем"
+		<< setw(18) << "Расход бензина"
+		<< "\n";
 }
