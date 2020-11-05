@@ -14,15 +14,15 @@ int main()
 	char answer;
 	do {
 		system("CLS");
-		cout << "1. Load" << endl;
-		cout << "2. Save" << endl;
-		cout << "3. Add to end" << endl;
-		cout << "4. Remove from end" << endl;
-		cout << "5. View" << endl;
-		cout << "6. Edit" << endl;
-		cout << "7. Filter" << endl;
-		cout << "8. Minimal gas miliage" << endl;
-		cout << "9. Exit" << endl;
+		cout << "1. Загрузить" << endl;
+		cout << "2. Сохранить" << endl;
+		cout << "3. Добавить в конец" << endl;
+		cout << "4. Удалить с конца" << endl;
+		cout << "5. Просмотреть" << endl;
+		cout << "6. Редактировать" << endl;
+		cout << "7. Фильтр по объему" << endl;
+		cout << "8. Минимальный расход топлива" << endl;
+		cout << "9. Выход" << endl;
 		answer = getchar();
 		switch (answer)
 		{
