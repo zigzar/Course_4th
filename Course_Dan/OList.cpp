@@ -61,9 +61,9 @@ void List::pushBack(Car& value)
 	size++;
 }
 
-void List::pushFront()
+void List::pushFront(Car& value)
 {
-	head = new Node(head);
+	head = new Node(value, head);
 	size++;
 }
 
@@ -71,24 +71,6 @@ void List::pushFront()
 int List::getSize() const
 {
 	return size;
-}
-
-
-List::Node* List::operator[](int index)
-{
-	int counter = 0;
-
-	Node* current = this->head;
-
-	while (current != nullptr)
-	{
-		if (counter == index)
-		{
-			return current;
-		}
-		current = current->next;
-		counter++;
-	}
 }
 
 
@@ -114,7 +96,7 @@ void List::clear()
 }
 
 
-void List::insert(int index)
+void List::insert(int index, Car& value)
 {
 	if (index > size || index < 0)
 	{
@@ -122,13 +104,13 @@ void List::insert(int index)
 		message.append(to_string(index));
 		throw out_of_range(message);
 	}
-	if (index == 0) pushFront();
+	if (index == 0) pushFront(value);
 	else
 	{
 		Node* previous = head;
 		for (int i = 0; i < index - 1; i++)
 			previous = previous->next;
-		previous->next = new Node(previous->next);
+		previous->next = new Node(value, previous->next);
 		size++;
 	}
 }
@@ -297,4 +279,18 @@ void List::showHeaders() const
 		<< setw(7) << "Объем"
 		<< setw(18) << "Расход бензина"
 		<< "\n";
+}
+
+void List::add()
+{
+	Node* tmp = new Node();
+	Node* current = this->head;
+	int counter = 0;
+	while (current != nullptr)
+	{
+		if (current->data.price > tmp->data.price) break;
+		counter++;
+		current = current->next;
+	}
+	insert(counter, tmp->data);
 }

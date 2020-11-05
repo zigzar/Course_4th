@@ -31,7 +31,7 @@ int main()
 		{
 		case '1': data.load(); system("PAUSE"); break;
 		case '2': data.save(); system("PAUSE"); break;
-		case '3': data.pushBack(); system("PAUSE"); break;
+		case '3': data.add(); system("PAUSE"); break;
 		case '4': data.popBack(); system("PAUSE"); break;
 		case '5': data.show(); system("PAUSE"); break;
 		case '6': data.edit(); system("PAUSE"); break;

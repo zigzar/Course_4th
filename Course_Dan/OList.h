@@ -25,13 +25,12 @@ public:
 	~List();
 	void pushBack();
 	void pushBack(Car& value);
-	void pushFront();
+	void pushFront(Car& value);
 	int getSize() const;
-	Node* operator[] (int);
 	void popFront();
 	void popBack();
 	void clear();
-	void insert(int index);
+	void insert(int index, Car& value);
 	void removeAt(int index);
 	void show() const;
 	void show(float volume) const;
@@ -41,4 +40,5 @@ public:
 	void filter();
 	void showMin();
 	void showHeaders() const;
+	void add();
 };
