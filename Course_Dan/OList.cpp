@@ -139,6 +139,7 @@ void List::removeAt(int index)
 
 void List::show() const
 {
+	system("CLS");
 	showHeaders();
 	Node* current = head;
 	int counter = 1;
@@ -304,4 +305,6 @@ void List::remove()
 	cin >> number;
 	if (!number) return;
 	removeAt(number - 1);
+	system("CLS");
+	cout << "Строка №" << number << " удалена.\n";
 }

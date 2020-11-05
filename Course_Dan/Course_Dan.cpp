@@ -13,6 +13,11 @@ int main()
 	SetConsoleOutputCP(1251);		// Русский вывод консоли
 	cout.setf(ios::fixed);			// Выводить большие числа в нормальной форме
 	cout.precision(2);				// Количество знаков после запятой
+	HANDLE h = GetStdHandle(STD_OUTPUT_HANDLE); ////////////////////////////////////////////
+	CONSOLE_CURSOR_INFO structCursorInfo;		//										  //
+	GetConsoleCursorInfo(h, &structCursorInfo); //  Отключение мигания курсора в консоли  //
+	structCursorInfo.bVisible = FALSE;			//										  //
+	SetConsoleCursorInfo(h, &structCursorInfo); ////////////////////////////////////////////
 	List data;
 	char answer;
 	do {
