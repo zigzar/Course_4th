@@ -6,25 +6,26 @@ using namespace std;
 
 void Newspaper::input()
 {
+	cin.ignore(cin.rdbuf()->in_avail());
 	cout << "Название газеты:\t";
-	cin >> this->name;
+	cin.getline(this->name, 32);
 	cout << "Индекс издания:\t";
-	cin >> this->index;
+	(cin >> this->index).get();
 	cout << "Фамилия:\t";
-	cin >> this->lastname;
+	cin.getline(this->lastname, 20);
 	cout << "ФИО редактора:\t";
-	cin >> this->redactor;
+	cin.getline(this->redactor, 64);
 	cout << "Цена экземпляра газеты:\t";
-	cin >> this->price;
+	(cin >> this->price).get();
 	cout << "\n";
 }
 
 void Newspaper::show()
 {
-	cout << setw(20) << left << this->name
-		<< setw(6) << this->index
+	cout << setw(26) << left << this->name
+		<< setw(17) << this->index
 		<< setw(20) << this->lastname
-		<< setw(64) << this->redactor 
-		<< setw(6) << this->price
+		<< setw(40) << this->redactor 
+		<< setw(7) << this->price
 		<< "\n";
 }

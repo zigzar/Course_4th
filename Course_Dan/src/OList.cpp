@@ -2,7 +2,7 @@
 #include "../include/OList.h"
 #include <iomanip> // форматирование таблицы авто
 
-List::Node::Node(Car& value, Node* n)
+List::Node::Node(Newspaper& value, Node* n)
 {
 	data = value;
 	next = n;
@@ -10,7 +10,7 @@ List::Node::Node(Car& value, Node* n)
 
 List::Node::Node(Node* n)
 {
-	data = Car();
+	data = Newspaper();
 	data.input();
 	next = n;
 }
@@ -45,7 +45,7 @@ void List::pushBack()
 	size++;
 }
 
-void List::pushBack(Car& value)
+void List::pushBack(Newspaper& value)
 {
 	if (head == nullptr)
 		head = new Node(value);
@@ -61,7 +61,7 @@ void List::pushBack(Car& value)
 	size++;
 }
 
-void List::pushFront(Car& value)
+void List::pushFront(Newspaper& value)
 {
 	head = new Node(value, head);
 	size++;
@@ -96,7 +96,7 @@ void List::clear()
 }
 
 
-void List::insert(int index, Car& value)
+void List::insert(int index, Newspaper& value)
 {
 	if (index > size || index < 0)
 	{
@@ -152,22 +152,22 @@ void List::show() const
 	}
 }
 
-void List::show(float volume) const
-{
-	showHeaders();
-	Node* current = head;
-	int counter = 1;
-	while (current != nullptr)
-	{
-		if (current->data.volume == volume)
-		{
-			cout << setw(3) << counter;
-			current->data.show();
-			counter++;
-		}
-		current = current->next;
-	}
-}
+//void List::show(float volume) const
+//{
+//	showHeaders();
+//	Node* current = head;
+//	int counter = 1;
+//	while (current != nullptr)
+//	{
+//		if (current->data.volume == volume)
+//		{
+//			cout << setw(3) << counter;
+//			current->data.show();
+//			counter++;
+//		}
+//		current = current->next;
+//	}
+//}
 
 void List::save()
 {
@@ -181,7 +181,7 @@ void List::save()
 		tmp = this->head;
 		while (tmp != nullptr)
 		{
-			fout.write((char*)&tmp->data, sizeof(Car));  // Записать объект класса автомобиля в текстовый файл
+			fout.write((char*)&tmp->data, sizeof(Newspaper));  // Записать объект класса автомобиля в текстовый файл
 			tmp = tmp->next;
 		}
 	}
@@ -198,12 +198,12 @@ void List::save()
 void List::load()
 {
 	ifstream fin;
-	Car current;
+	Newspaper current;
 	try
 	{
 		fin.open("data.txt");
 		this->clear();
-		while (fin.read((char*)&current, sizeof(Car)))  // Считывать объекты классов, пока файл не закончится
+		while (fin.read((char*)&current, sizeof(Newspaper)))  // Считывать объекты классов, пока файл не закончится
 		{
 			this->pushBack(current);
 		}
@@ -239,46 +239,44 @@ void List::edit()
 	}
 }
 
-void List::filter()
-{
-	show();
-	cout << "Введите объем двигателя: ";
-	float volume;
-	cin >> volume;
-	system("CLS");
-	this->show(volume);
-}
+//void List::filter()
+//{
+//	show();
+//	cout << "Введите объем двигателя: ";
+//	float volume;
+//	cin >> volume;
+//	system("CLS");
+//	this->show(volume);
+//}
 
-void List::showMin()
-{
-	float min = numeric_limits<float>::max();  // Максимальное значение для типа float
-	Node* current = this->head;
-	while (current != nullptr)
-	{
-		if (current->data.gasMileage < min) min = current->data.gasMileage;
-		current = current->next;
-	}
-	if (min == numeric_limits<float>::max()) return;  // Если минимум не обновился, выходим из функции
-	current = this->head;
-	system("CLS");
-	cout << "Автомобиль(и) с наименьшим расходом топлива:\n";
-	while (current != nullptr)
-	{
-		if (current->data.gasMileage == min) current->data.show();
-		current = current->next;
-	}
-}
+//void List::showMin()
+//{
+//	float min = numeric_limits<float>::max();  // Максимальное значение для типа float
+//	Node* current = this->head;
+//	while (current != nullptr)
+//	{
+//		if (current->data.gasMileage < min) min = current->data.gasMileage;
+//		current = current->next;
+//	}
+//	if (min == numeric_limits<float>::max()) return;  // Если минимум не обновился, выходим из функции
+//	current = this->head;
+//	system("CLS");
+//	cout << "Автомобиль(и) с наименьшим расходом топлива:\n";
+//	while (current != nullptr)
+//	{
+//		if (current->data.gasMileage == min) current->data.show();
+//		current = current->next;
+//	}
+//}
 
 void List::showHeaders() const
 {
 	cout << setw(3) << left << "№"
-		<< setw(14) << "Цена"
-		<< setw(14) << "Количество"
-		<< setw(18) << "Марка"
-		<< setw(14) << "Страна"
-		<< setw(6) << "Год"
-		<< setw(7) << "Объем"
-		<< setw(18) << "Расход бензина"
+		<< setw(26) << "Название газеты"
+		<< setw(17) << "Индекс издания"
+		<< setw(20) << "Фамилия"
+		<< setw(40) << "ФИО редактора"
+		<< setw(7) << "Цена"
 		<< "\n";
 }
 
@@ -289,7 +287,6 @@ void List::add()
 	int counter = 0;
 	while (current != nullptr)
 	{
-		if (current->data.price > tmp->data.price) break;
 		counter++;
 		current = current->next;
 	}

@@ -1,4 +1,4 @@
-﻿#include "include/Car.h"
+﻿#include "include/Newspaper.h"
 #include "include/OList.h"
 #include <iostream>
 #include <fstream>		// для записи/чтения из файла
@@ -43,8 +43,8 @@ int main()
 		cout << "4. Удалить" << endl;
 		cout << "5. Просмотреть" << endl;
 		cout << "6. Редактировать" << endl;
-		cout << "7. Фильтр по объему" << endl;
-		cout << "8. Минимальный расход топлива" << endl;
+		//cout << "7. Сортировка" << endl;
+		//cout << "8. Минимальный расход топлива" << endl;
 		cout << "9. Выход" << endl;
 		answer = getchar();
 		switch (answer)
@@ -55,8 +55,8 @@ int main()
 		case '4': system("CLS"); data.remove();  system("PAUSE"); break;
 		case '5': system("CLS"); data.show();	 system("PAUSE"); break;
 		case '6': system("CLS"); data.edit();	 system("PAUSE"); break;
-		case '7': system("CLS"); data.filter();  system("PAUSE"); break;
-		case '8': system("CLS"); data.showMin(); system("PAUSE"); break;
+		//case '7': system("CLS"); data.filter();  system("PAUSE"); break;
+		//case '8': system("CLS"); data.showMin(); system("PAUSE"); break;
 		}
 	} while (answer != '9');
 
