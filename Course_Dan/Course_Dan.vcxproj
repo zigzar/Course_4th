@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="Course_Dan.cpp" />
     <ClCompile Include="src\Car.cpp" />
+    <ClCompile Include="src\Newspaper.cpp" />
     <ClCompile Include="src\OList.cpp" />
   </ItemGroup>
   <ItemGroup>
