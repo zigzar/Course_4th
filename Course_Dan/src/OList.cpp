@@ -326,6 +326,7 @@ void List::search()
 	cout << "Укажите \"-1\", чтобы вернуться назад." << endl;
 	cout << "Ваш индекс: ";
 	cin >> key;
+	cout << endl << "Результат поиска:" << endl;
 
 	if (key == -1) return;
 
