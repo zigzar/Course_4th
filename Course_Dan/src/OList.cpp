@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include "../include/OList.h"
+#include "../include/RBST.h"
 #include <iomanip> // форматирование таблицы авто
 
 List::Node::Node(Newspaper& value, Node* n)
@@ -286,6 +287,7 @@ void List::sortInsert()
 	}
 }
 
+
 void List::sortSelect()
 {
 	for (int i = 0; i < this->getSize() - 1; ++i)
@@ -314,4 +316,23 @@ void List::sortBubble()
 			}
 		}
 	}
+}
+
+void List::search()
+{
+	//TreeNode* tree;
+
+
+	//Node* current = head;
+	//while (current != nullptr)
+	//{
+	//	current->data;
+	//	current = current->next;
+	//}
+
+
+
+	//system("CLS");
+	//showHeaders();
+	//current->data.show();
 }

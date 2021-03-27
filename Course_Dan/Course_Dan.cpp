@@ -1,9 +1,10 @@
-﻿#include "include/Newspaper.h"
-#include "include/OList.h"
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>		// для записи/чтения из файла
 #include <stdlib.h>		// для очистки консоли
 #include <Windows.h>	// для локализации
+#include <ctime>
+#include "include/Newspaper.h"
+#include "include/OList.h"
 
 using namespace std;
 
@@ -20,6 +21,7 @@ int main()
 	GetConsoleCursorInfo(h, &structCursorInfo); //  Отключение мигания курсора в консоли  //
 	structCursorInfo.bVisible = FALSE;			//										  //
 	SetConsoleCursorInfo(h, &structCursorInfo); ////////////////////////////////////////////
+	srand(time(0));
 	List data;
 	char answer;
 	do {

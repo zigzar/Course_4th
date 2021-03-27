@@ -43,4 +43,5 @@ public:
 	void sortInsert();
 	void sortSelect();
 	void sortBubble();
+	void search();
 };
