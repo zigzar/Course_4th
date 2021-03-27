@@ -46,22 +46,6 @@ Newspaper& List::getElem(const int index)
 	}
 }
 
-void List::pushBack()
-{
-	if (head == nullptr)
-		head = new Node();
-	else
-	{
-		for (Node* current = head; ; current = current->next)
-			if (current->next == nullptr)
-			{
-				current->next = new Node();
-				break;
-			}
-	}
-	size++;
-}
-
 void List::pushBack(Newspaper& value)
 {
 	if (head == nullptr)
@@ -254,13 +238,11 @@ void List::add()
 {
 	Node* tmp = new Node();
 	Node* current = this->head;
-	int counter = 0;
 	while (current != nullptr)
 	{
-		counter++;
 		current = current->next;
 	}
-	insert(counter, tmp->data);
+	pushBack(tmp->data);
 }
 
 void List::remove()

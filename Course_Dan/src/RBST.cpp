@@ -33,7 +33,7 @@ int TreeNode::getSize(TreeNode* p) // обертка для поля size, работает с пустыми 
 	return p->size;
 }
 
-void TreeNode::fixSize(TreeNode* p) // установление корректного размера дерева
+void TreeNode::fixSize(TreeNode* p) // установка корректного размера дерева
 {
 	p->size = getSize(p->left) + getSize(p->right) + 1;
 }

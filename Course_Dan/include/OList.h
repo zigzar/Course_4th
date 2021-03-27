@@ -23,25 +23,24 @@ class List
 public:
 	List();
 	~List();
-	Newspaper& getElem(const int index);
-	void pushBack();
-	void pushBack(Newspaper& value);
-	void pushFront(Newspaper& value);
-	int getSize() const;
-	void popFront();
-	void popBack();
-	void clear();
-	void insert(int index, Newspaper& value);
-	void removeAt(int index);
-	void show() const;
-	void save();
-	void load();
-	void edit();
-	void showHeaders() const;
-	void add();
-	void remove();
-	void sortInsert();
-	void sortSelect();
-	void sortBubble();
-	void search();
+	Newspaper& getElem(const int index);		// Получить элемент по индексу
+	void pushBack(Newspaper& value);			// Вставить элемент в конец	
+	void pushFront(Newspaper& value);			// Вставить элемент в начало
+	int getSize() const;						// Получить размер списка
+	void popFront();							// Удалить с начала
+	void popBack();								// Удалить с конца
+	void clear();								// Очистить список
+	void insert(int index, Newspaper& value);	// Вставить под индексом index
+	void removeAt(int index);					// Удалить элемент с индексом index
+	void show() const;							// Вывести список в консоль
+	void save();								// Сохранить список в файл
+	void load();								// Загрузить список из файла
+	void edit();								// Редактировать список
+	void showHeaders() const;					// Вывести в консоль заголовки таблицы
+	void add();									// Добавить новый узел списка
+	void remove();								// Интерфейс удаления элемента
+	void sortInsert();							// Сортировка списка вставками
+	void sortSelect();							// Сортировка списка выбором
+	void sortBubble();							// Сортировка списка обменом
+	void search();								// Выполнить поиск газеты по индексу
 };

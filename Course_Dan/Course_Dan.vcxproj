@@ -152,13 +152,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Course_Dan.cpp" />
-    <ClCompile Include="src\Car.cpp" />
     <ClCompile Include="src\Newspaper.cpp" />
     <ClCompile Include="src\OList.cpp" />
     <ClCompile Include="src\RBST.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="include\Car.h" />
     <ClInclude Include="include\Newspaper.h" />
     <ClInclude Include="include\OList.h" />
     <ClInclude Include="include\RBST.h" />

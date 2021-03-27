@@ -15,11 +15,11 @@ struct TreeNode // структура для представления узлов дерева
 	}
 
 public:
-	TreeNode* find(TreeNode* p, int k);
-	int getSize(TreeNode* p);
-	void fixSize(TreeNode* p);
-	TreeNode* insertRoot(TreeNode* p, Newspaper* k);
-	TreeNode* rotateRight(TreeNode* p);
-	TreeNode* rotateLeft(TreeNode* q);
-	TreeNode* insert(TreeNode* p, Newspaper* k);
+	TreeNode* find(TreeNode* p, int k);					// поиск ключа k в дереве p
+	int getSize(TreeNode* p);							// обертка для поля size, работает с пустыми деревьями (t=NULL)
+	void fixSize(TreeNode* p);							// установка корректного размера дерева
+	TreeNode* insertRoot(TreeNode* p, Newspaper* k);	// вставка нового узла с ключом k в корень дерева p
+	TreeNode* rotateRight(TreeNode* p);					// правый поворот вокруг узла p
+	TreeNode* rotateLeft(TreeNode* q);					// левый поворот вокруг узла q
+	TreeNode* insert(TreeNode* p, Newspaper* k);		// рандомизированная вставка нового узла с ключом k в дерево p
 };
