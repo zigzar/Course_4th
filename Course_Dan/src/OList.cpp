@@ -288,12 +288,23 @@ void List::sortInsert()
 
 void List::sortSelect()
 {
+	//for (int startIndex = 0; startIndex < this->getSize() - 1; ++startIndex)
+	//{
+	//	int smallestIndex = startIndex;
 
+	//	for (int currentIndex = startIndex + 1; currentIndex < this->getSize(); ++currentIndex)
+	//	{
+	//		if (array[currentIndex] < array[smallestIndex])
+	//			smallestIndex = currentIndex;
+	//	}
+
+	//	swap(array[startIndex], array[smallestIndex]);
+	//}
 }
 
 void List::sortBubble()
 {
-	for (int i = 0; i < this->getSize() - 1; i++)
+	for (int i = 0; i < this->getSize(); i++)
 	{
 		for (int j = 0; j < this->getSize() - i - 1; j++)
 		{
