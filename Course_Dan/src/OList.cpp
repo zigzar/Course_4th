@@ -288,18 +288,18 @@ void List::sortInsert()
 
 void List::sortSelect()
 {
-	//for (int startIndex = 0; startIndex < this->getSize() - 1; ++startIndex)
-	//{
-	//	int smallestIndex = startIndex;
+	for (int i = 0; i < this->getSize() - 1; ++i)
+	{
+		int minIndex = i;
 
-	//	for (int currentIndex = startIndex + 1; currentIndex < this->getSize(); ++currentIndex)
-	//	{
-	//		if (array[currentIndex] < array[smallestIndex])
-	//			smallestIndex = currentIndex;
-	//	}
+		for (int j = i + 1; j < this->getSize(); ++j)
+		{
+			if (this->getElem(j).price < this->getElem(minIndex).price)
+				minIndex = j;
+		}
 
-	//	swap(array[startIndex], array[smallestIndex]);
-	//}
+		swap(this->getElem(i), this->getElem(minIndex));
+	}
 }
 
 void List::sortBubble()
