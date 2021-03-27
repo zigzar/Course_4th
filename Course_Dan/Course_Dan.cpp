@@ -60,7 +60,7 @@ int main()
 		case '5': system("CLS"); data.show();	 system("PAUSE"); break;
 		case '6': system("CLS"); data.edit();	 system("PAUSE"); break;
 		case '7': system("CLS"); sortMenu(data); break;
-		//case '8': system("CLS"); data.showMin(); system("PAUSE"); break;
+		case '8': system("CLS"); data.search(); system("PAUSE"); break;
 		}
 	} while (answer != '9');
 

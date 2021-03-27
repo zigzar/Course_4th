@@ -1,24 +1,25 @@
 #pragma once
 #include "../include/RBST.h"
+#include "../include/Newspaper.h"
 #include <iostream>
 
 TreeNode* TreeNode::find(TreeNode* p, int k) // поиск ключа k в дереве p
 {
     if (!p) return 0; // в пустом дереве можно не искать
-    if (k == p->key)
+    if (k == p->key->index)
         return p;
-    if (k < p->key)
+    if (k < p->key->index)
         return find(p->left, k);
     else
         return find(p->right, k);
 }
 
-TreeNode* TreeNode::insert(TreeNode* p, int k) // рандомизированная вставка нового узла с ключом k в дерево p
+TreeNode* TreeNode::insert(TreeNode* p, Newspaper* k) // рандомизированная вставка нового узла с ключом k в дерево p
 {
 	if (!p) return new TreeNode(k);
 	if (rand() % (p->size + 1) == 0)
 		return insertRoot(p, k);
-	if (p->key > k)
+	if (p->key->index > k->index)
 		p->left = insert(p->left, k);
 	else
 		p->right = insert(p->right, k);
@@ -59,7 +60,7 @@ TreeNode* TreeNode::rotateLeft(TreeNode* q) // левый поворот вокруг узла q
 	return p;
 }
 
-TreeNode* TreeNode::insertRoot(TreeNode* p, int k) // вставка нового узла с ключом k в корень дерева p 
+TreeNode* TreeNode::insertRoot(TreeNode* p, Newspaper* k) // вставка нового узла с ключом k в корень дерева p 
 {
 	if (!p) return new TreeNode(k);
 	if (k < p->key)

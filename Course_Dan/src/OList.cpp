@@ -320,19 +320,34 @@ void List::sortBubble()
 
 void List::search()
 {
-	//TreeNode* tree;
+	int key = 0;
+	system("CLS");
+	cout << "Введите индекс газеты для поиска (натуральное число)." << endl;
+	cout << "Укажите \"-1\", чтобы вернуться назад." << endl;
+	cout << "Ваш индекс: ";
+	cin >> key;
 
+	if (key == -1) return;
 
-	//Node* current = head;
-	//while (current != nullptr)
-	//{
-	//	current->data;
-	//	current = current->next;
-	//}
+	TreeNode* tree = nullptr;
+	Node* current = head;
+	while (current != nullptr)
+	{
+		Newspaper* data = &current->data;
+		tree = tree->insert(tree, data);
+		current = current->next;
+	}
 
+	TreeNode* node = tree->find(tree, key);
+	if (node) 
+	{
+		showHeaders();
+		cout << setw(3) << "1";
+		node->key->show();
+	}
+	else
+	{
+		cout << "Указанного индекса не существует" << endl;
+	}
 
-
-	//system("CLS");
-	//showHeaders();
-	//current->data.show();
 }
