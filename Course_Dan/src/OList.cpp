@@ -28,6 +28,22 @@ List::~List()
 	clear();
 }
 
+Newspaper& List::getElem(const int index)
+{
+	int counter = 0;
+
+	Node* current = this->head;
+
+	while (current != nullptr)
+	{
+		if (counter == index)
+		{
+			return current->data;
+		}
+		current = current->next;
+		counter++;
+	}
+}
 
 void List::pushBack()
 {
@@ -152,23 +168,6 @@ void List::show() const
 	}
 }
 
-//void List::show(float volume) const
-//{
-//	showHeaders();
-//	Node* current = head;
-//	int counter = 1;
-//	while (current != nullptr)
-//	{
-//		if (current->data.volume == volume)
-//		{
-//			cout << setw(3) << counter;
-//			current->data.show();
-//			counter++;
-//		}
-//		current = current->next;
-//	}
-//}
-
 void List::save()
 {
 	ofstream fout;
@@ -239,36 +238,6 @@ void List::edit()
 	}
 }
 
-//void List::filter()
-//{
-//	show();
-//	cout << "Введите объем двигателя: ";
-//	float volume;
-//	cin >> volume;
-//	system("CLS");
-//	this->show(volume);
-//}
-
-//void List::showMin()
-//{
-//	float min = numeric_limits<float>::max();  // Максимальное значение для типа float
-//	Node* current = this->head;
-//	while (current != nullptr)
-//	{
-//		if (current->data.gasMileage < min) min = current->data.gasMileage;
-//		current = current->next;
-//	}
-//	if (min == numeric_limits<float>::max()) return;  // Если минимум не обновился, выходим из функции
-//	current = this->head;
-//	system("CLS");
-//	cout << "Автомобиль(и) с наименьшим расходом топлива:\n";
-//	while (current != nullptr)
-//	{
-//		if (current->data.gasMileage == min) current->data.show();
-//		current = current->next;
-//	}
-//}
-
 void List::showHeaders() const
 {
 	cout << setw(3) << left << "№"
@@ -304,4 +273,14 @@ void List::remove()
 	removeAt(number - 1);
 	system("CLS");
 	cout << "Строка №" << number << " удалена.\n";
+}
+
+void List::sortInsert()
+{
+	for (int i = 1; i < this->getSize() ; i++)
+		for (int j = i; j > 0 && this->getElem(j - 1).price > this->getElem(j).price; j--)
+		{
+			swap(this->getElem(j - 1), this->getElem(j));
+		}
+
 }

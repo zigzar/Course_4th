@@ -23,6 +23,7 @@ class List
 public:
 	List();
 	~List();
+	Newspaper& getElem(const int index);
 	void pushBack();
 	void pushBack(Newspaper& value);
 	void pushFront(Newspaper& value);
@@ -33,13 +34,11 @@ public:
 	void insert(int index, Newspaper& value);
 	void removeAt(int index);
 	void show() const;
-	//void show(float volume) const;
 	void save();
 	void load();
 	void edit();
-	//void filter();
-	//void showMin();
 	void showHeaders() const;
 	void add();
 	void remove();
+	void sortInsert();
 };
