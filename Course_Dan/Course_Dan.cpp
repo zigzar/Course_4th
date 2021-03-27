@@ -7,6 +7,8 @@
 
 using namespace std;
 
+void sortMenu(List& data);
+
 int main()
 {
 	SetConsoleCP(1251);				// Русский ввод в консоль
@@ -55,10 +57,36 @@ int main()
 		case '4': system("CLS"); data.remove();  system("PAUSE"); break;
 		case '5': system("CLS"); data.show();	 system("PAUSE"); break;
 		case '6': system("CLS"); data.edit();	 system("PAUSE"); break;
-		case '7': system("CLS"); data.sortInsert();  system("PAUSE"); break;
+		case '7': system("CLS"); sortMenu(data); break;
 		//case '8': system("CLS"); data.showMin(); system("PAUSE"); break;
 		}
 	} while (answer != '9');
 
 	system("pause");
+}
+
+void sortMenu(List& data)
+{
+	char answer = '0';
+	do {
+		system("CLS");
+		cout << "Выберите способ сортировки цены:" << endl;
+		cout << "1. Вставками" << endl;
+		cout << "2. Выбором" << endl;
+		cout << "3. Обменом" << endl;
+		cout << "4. Назад" << endl;
+		answer = getchar();
+		switch (answer)
+		{
+		case '1': system("CLS"); data.sortInsert(); break;
+		case '2': system("CLS"); data.sortSelect(); break;
+		case '3': system("CLS"); data.sortBubble(); break;
+		}
+		if (answer == '1' || answer == '2' || answer == '3') 
+		{
+			cout << "База данных успешно отсортирована!" << endl;
+			system("PAUSE");
+			break;
+		}
+	} while (answer != '4');
 }

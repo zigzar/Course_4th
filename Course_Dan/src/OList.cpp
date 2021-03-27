@@ -277,10 +277,30 @@ void List::remove()
 
 void List::sortInsert()
 {
-	for (int i = 1; i < this->getSize() ; i++)
+	for (int i = 1; i < this->getSize(); i++) // Начинаем сортировать со 2-го элемента, т.к. 1-й элемент по умолчанию отсортирован
+	{
 		for (int j = i; j > 0 && this->getElem(j - 1).price > this->getElem(j).price; j--)
 		{
 			swap(this->getElem(j - 1), this->getElem(j));
 		}
+	}
+}
 
+void List::sortSelect()
+{
+
+}
+
+void List::sortBubble()
+{
+	for (int i = 0; i < this->getSize() - 1; i++)
+	{
+		for (int j = 0; j < this->getSize() - i - 1; j++)
+		{
+			if (this->getElem(j).price > this->getElem(j + 1).price)
+			{
+				swap(this->getElem(j + 1), this->getElem(j));
+			}
+		}
+	}
 }

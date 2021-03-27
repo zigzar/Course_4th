@@ -41,4 +41,6 @@ public:
 	void add();
 	void remove();
 	void sortInsert();
+	void sortSelect();
+	void sortBubble();
 };
