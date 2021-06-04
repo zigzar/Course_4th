@@ -1,7 +1,7 @@
 ﻿#pragma once
 #include "../include/OList.h"
 #include "../include/RBST.h"
-#include <iomanip> // форматирование таблицы авто
+#include <iomanip> // форматирование таблицы
 
 List::Node::Node(Newspaper& value, Node* n)
 {
@@ -165,7 +165,7 @@ void List::save()
 		tmp = this->head;
 		while (tmp != nullptr)
 		{
-			fout.write((char*)&tmp->data, sizeof(Newspaper));  // Записать объект класса автомобиля в текстовый файл
+			fout.write((char*)&tmp->data, sizeof(Newspaper));  // Записать объект класса газеты в текстовый файл
 			tmp = tmp->next;
 		}
 	}
